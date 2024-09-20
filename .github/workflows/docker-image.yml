@@ -17,7 +17,7 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag my-image-name:test
     - name: Save the Docker image
-      run: docker save -o image.tar my-image:test
+      run: docker save -o image.tar my-image-name:test
     - name: Release the Docker image
       uses: softprops/action-gh-release@v2
       with:
