@@ -18,11 +18,8 @@ jobs:
       run: docker build . --file Dockerfile --tag my-image-name:test
     - name: Save the Docker image
       run: docker save -o image.tar my-image-name:test
-    - name: Release the Docker image
-      uses: softprops/action-gh-release@v2
+    - name: Upload Docker image
+      uses: actions/upload-artifact@v2
       with:
-        token: ${{ secrets.osx }}
-        body_path: ./CHANGELOG.md
-        files: |
-          ./build/**
-          ./CHANGELOG.md
+        name: my-image
+        path: image.tar
