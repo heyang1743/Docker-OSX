@@ -19,7 +19,7 @@ jobs:
     - name: Save the Docker image
       run: docker save -o image.tar my-image-name:test
     - name: Upload Docker image
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: my-image
         path: image.tar
